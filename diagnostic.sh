@@ -31,7 +31,8 @@ case "$OPTION" in
 	echo -e "\n\n\n-----SELINUX STATUS----------\n\n" >> /tmp/diagnostic ; sestatus >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----FIREWALLD SERVICE-------\n\n" >> /tmp/diagnostic ; systemctl status firewalld >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----FIREWALLD RULES---------\n\n" >> /tmp/diagnostic ; firewall-cmd --list-all >> /tmp/diagnostic ; 
-	echo -e "\n\n\n-----IP TABLES---------------\n\n" >> /tmp/diagnostic ; iptables -L >> /tmp/diagnostic ; clear ; telnet rhui-1.microsoft.com 443 >> /tmp/diagnostic ;
+	echo -e "\n\n\n-----IP TABLES---------------\n\n" >> /tmp/diagnostic ; iptables -L >> /tmp/diagnostic ; clear ; /tmp/diagnostic ;
+	for x in telnet rhui-1.microsoft.com telnet rhui-2.microsoft.com 443 telnet rhui-3.microsoft.com ; do telnet $x 443 >> /tmp/diagnostic ;
 	cat /tmp/diagnostic
 	;;
 	
