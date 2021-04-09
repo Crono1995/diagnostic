@@ -1,15 +1,18 @@
 #!/bin/bash
-
+echo "********AZURE-CLOUD***********"
+echo "------------------------------"
 echo "1.-------CENTOS / REDHAT------"
 echo "2.-------DEBIAN---------------"
 echo "3.-------ORACLE-LINUX---------"
 echo "4.-------SUSE-----------------"
 echo "5.-------UBUNTU---------------"
+echo "------------------------------"
+echo "******************************"
 echo
-read -p "\n-OPTION:  " OPTION
+read -p "SECLECT AN OPTION:  " OPTION
 
 case "$OPTION" in
-	1)echo -e "\n\n\n-----SSHD SERVICE STATUS-----\n\n" >> /tmp/diagnostic; systemctl status sshd >> /tmp/diagnostic;
+	1)echo -e "\n\n\n-----SSHD SERVICE STATUS-----\n\n" >> /tmp/diagnostic ; systemctl status sshd >> /tmp/diagnostic;
 	echo -e "\n\n\n-----SSHD_CONFIG-------------\n\n" >> /tmp/diagnostic ; cat /etc/ssh/sshd_config >> /tmp/diagnostic ;
 	echo -e "\n\n\n-----NETWORK-MANAGER---------\n\n" >> /tmp/diagnostic ; systemctl status NetworkManager >> /tmp/diagnostic ;
 	echo -e "\n\n\n-----CLOUD-INIT--------------\n\n" >> /tmp/diagnostic ; systemctl status cloud-init.service >> /tmp/diagnostic ;
@@ -28,7 +31,7 @@ case "$OPTION" in
 	cat /tmp/diagnostic
 	;;
 	
-	2)echo -e "\n\n\n-----SSHD SERVICE STATUS:-----\n\n" >> /tmp/diagnostic; systemctl status sshd >> /tmp/diagnostic;
+	2)echo -e "\n\n\n-----SSHD SERVICE STATUS:-----\n\n" >> /tmp/diagnostic ; systemctl status sshd >> /tmp/diagnostic;
 	echo -e "\n\n\n-----SSHD_CONFIG:-------------\n\n" >> /tmp/diagnostic ; cat /etc/ssh/sshd_config >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----HOSTS.DENY:--------------\n\n" >> /tmp/diagnostic ; cat /etc/hosts.deny >> /tmp/diagnostic ;
 	echo -e "\n\n\n-----WALINUXAGENT STATUS:-----\n\n" >> /tmp/diagnostic ; systemctl status walinuxagent >> /tmp/diagnostic ; 
@@ -42,8 +45,7 @@ case "$OPTION" in
 	cat /tmp/diagnostic
 	;;
 
-	3)
-	echo -e "\n\n\n-----SSHD SERVICE STATUS:-----\n\n" >> /tmp/diagnostic; systemctl status sshd >> /tmp/diagnostic; 
+	3)	echo -e "\n\n\n-----SSHD SERVICE STATUS:-----\n\n" >> /tmp/diagnostic ; systemctl status sshd >> /tmp/diagnostic; 
 	echo -e "\n\n\n-----SSHD_CONFIG:-------------\n\n" >> /tmp/diagnostic ; cat /etc/ssh/sshd_config >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----HOSTS.ALLOW:-------------\n\n" >> /tmp/diagnostic ; cat /etc/hosts.allow >> /tmp/diagnostic ;
 	echo -e "\n\n\n-----WALINUXAGENT STATUS:-----\n\n" >> /tmp/diagnostic ; systemctl status waagent >> /tmp/diagnostic ; 
@@ -58,8 +60,7 @@ case "$OPTION" in
 	cat /tmp/diagnostic
 	;;
 
-	4)
-	echo -e "\n\n\n-----SSHD SERVICE STATUS:-----\n\n" >> /tmp/diagnostic; systemctl status sshd >> /tmp/diagnostic; 
+	4)	echo -e "\n\n\n-----SSHD SERVICE STATUS:-----\n\n" >> /tmp/diagnostic ; systemctl status sshd >> /tmp/diagnostic; 
 	echo -e "\n\n\n-----SSHD_CONFIG:-------------\n\n" >> /tmp/diagnostic ; cat /etc/ssh/sshd_config >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----HOSTS.DENY:--------------\n\n" >> /tmp/diagnostic ; cat /etc/hosts.deny >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----WALINUXAGENT STATUS:-----\n\n" >> /tmp/diagnostic ; systemctl status waagent >> /tmp/diagnostic ; 
@@ -75,8 +76,7 @@ case "$OPTION" in
 	;;
 
 
-	5)
-	echo -e "\n\n\n-----SSHD SERVICE STATUS-----\n\n" >> /tmp/diagnostic; systemctl status sshd >> /tmp/diagnostic;
+	5)	echo -e "\n\n\n-----SSHD SERVICE STATUS-----\n\n" >> /tmp/diagnostic ; systemctl status sshd >> /tmp/diagnostic;
 	echo -e "\n\n\n-----SSHD_CONFIG-------------\n\n" >> /tmp/diagnostic ; cat /etc/ssh/sshd_config >> /tmp/diagnostic ;
 	echo -e "\n\n\n-----HOSTS-------------------\n\n" >> /tmp/diagnostic ; cat /etc/hosts >> /tmp/diagnostic ;
 	echo -e "\n\n\n-----WALINUXAGENT STATUS-----\n\n" >> /tmp/diagnostic ; systemctl status walinuxagent >> /tmp/diagnostic ;
