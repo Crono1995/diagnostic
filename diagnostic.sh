@@ -1,4 +1,5 @@
 #!/bin/bash
+clear
 echo "********AZURE-CLOUD***********"
 echo "********AZURE-CLOUD***********"
 echo "********AZURE-CLOUD***********"
