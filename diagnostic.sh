@@ -32,7 +32,7 @@ case "$OPTION" in
 	echo -e "\n\n\n-----FIREWALLD SERVICE-------\n\n" >> /tmp/diagnostic ; systemctl status firewalld >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----FIREWALLD RULES---------\n\n" >> /tmp/diagnostic ; firewall-cmd --list-all >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----IP TABLES---------------\n\n" >> /tmp/diagnostic ; iptables -L >> /tmp/diagnostic ; clear ; /tmp/diagnostic ;
-	for x in rhui-1.microsoft.com rhui-2.microsoft.com rhui-3.microsoft.com ; do nc -vz $x 443 >> /tmp/diagnostic 2>&1 ; done ;
+	for x in rhui-1.microsoft.com rhui-2.microsoft.com rhui-3.microsoft.com ; do (echo $x && nc -vz $x 443) >> /tmp/diagnostic 2>&1 ; done ;
 	cat /tmp/diagnostic
 	;;
 	
