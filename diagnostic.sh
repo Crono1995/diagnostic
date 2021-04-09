@@ -33,7 +33,6 @@ case "$OPTION" in
 	echo -e "\n\n\n-----FIREWALLD RULES---------\n\n" >> /tmp/diagnostic ; firewall-cmd --list-all >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----IP TABLES---------------\n\n" >> /tmp/diagnostic ; iptables -L >> /tmp/diagnostic ;
 	echo -e "\n\n\n-----RHEL-RHUIS--------------\n\n" >> /tmp/diagnostic ; (telnet rhui-1.microsoft.com 443 ; telnet rhui-2.microsoft.com 443 ; telnet rhui-3.microsoft.com 443 ; ping -c 4 rhui-1.microsoft.com ; ping -c 4 rhui-2.microsoft.com ; ping -c 4 rhui-3.microsoft.com >> /tmp/diagnostic ; clear ;
-	
 	cat /tmp/diagnostic
 	;;
 	
