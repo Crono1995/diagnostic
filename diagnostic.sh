@@ -33,7 +33,7 @@ case "$OPTION" in
 	echo -e "\n\n\n-----FIREWALLD RULES---------\n\n" 2>/dev/null >> /tmp/diagnostic ; firewall-cmd --list-all 2>/dev/null >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----IP TABLES---------------\n\n" 2>/dev/null >> /tmp/diagnostic ; iptables -L 2>/dev/null >> /tmp/diagnostic ; clear ; /tmp/diagnostic ;
 	echo -e "\n\n\n-----RHEL-RHUIS--------------\n\n" 2>/dev/null >> /tmp/diagnostic ; 
-	for x in rhui-1.microsoft.com rhui-2.microsoft.com rhui-3.microsoft.com ; do (echo -e "\n\n$x\n" && nc -vz $x 443) 2>/dev/null >> /tmp/diagnostic 2>&1 ; done ;
+	for x in rhui-5.microsoft.com rhui-2.microsoft.com rhui-3.microsoft.com ; do echo -e "\n$x" && (echo >/dev/tcp/$x/443) && echo "Open 443" || echo "Close 443" >> /tmp/diagnostic 2>&1 ; done ;
 	cat /tmp/diagnostic
 	;;
 	
