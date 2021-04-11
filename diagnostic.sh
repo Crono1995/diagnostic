@@ -13,7 +13,7 @@ echo "****-----------------------------***"
 echo "************************************"
 echo "************************************"
 echo
-read -p "-*SELECT AN OPTION_#: " OPTION
+read -p "*-- SELECT AN OPTION_#: " OPTION
 
 case "$OPTION" in
 	1)echo -e "\n\n\n-----SSHD SERVICE STATUS-----\n\n" 2>/dev/null > /tmp/diagnostic ; systemctl status sshd 2>/dev/null >> /tmp/diagnostic;
