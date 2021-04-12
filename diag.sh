@@ -1,4 +1,5 @@
 #!/bin/bash
+#test
 clear
 echo "************************************"
 echo "************************************"
@@ -36,9 +37,12 @@ case "$OPTION" in
 	echo -e "\n\n\n-----REPOLIST----------------\n\n" 2>/dev/null >> /tmp/diagnostic ; yum repolist >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----RHEL-RHUIS--------------\n\n" 2>/dev/null >> /tmp/diagnostic ; for x in rhui-1.microsoft.com rhui-2.microsoft.com rhui-3.microsoft.com ; do echo -e "\n$x" 2>/dev/null >> /tmp/diagnostic ; (echo >/dev/tcp/$x/443) && (echo "Open 443" || echo "Close 443") >> /tmp/diagnostic 2>&1 ; done ; 
 	echo -e "\n\n\n-----RH-CLOUD----------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/yum.repos.d/rh-cloud.repo >> /tmp/diagnostic ; 
+	echo -e "\n\n\n-----GRUB2:CFG---------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /boot/grub2/grub.cfg >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----FSTAB-------------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/fstab >> /tmp/diagnostic ; 
-	echo -e "\n\n\n-----LSBLK-------------------\n\n" 2>/dev/null >> /tmp/diagnostic ; lsblk -f >>/tmp/diagnostic ;
+	echo -e "\n\n\n-----LSBLK-------------------\n\n" 2>/dev/null >> /tmp/diagnostic ; lsblk -f >>/tmp/diagnostic ; 
 	echo -e "\n\n\n-----DISK-SPACE--------------\n\n" 2>/dev/null >> /tmp/diagnostic ; df -Th >> /tmp/diagnostic ;
+	echo -e "\n\n\n-----KERNEL-VERSION----------\n\n" 2>/dev/null >> /tmp/diagnostic ; uname -rn >> /tmp/diagnostic ;
+	cat /tmp/diagnostic
 	;;
 	
 	2)echo -e "\n\n\n-----SSHD SERVICE STATUS:-----\n\n" 2>/dev/null > /tmp/diagnostic ; systemctl status sshd 2>/dev/null >> /tmp/diagnostic;
@@ -53,6 +57,10 @@ case "$OPTION" in
 	echo -e "\n\n\n-----UFW STATUS---------------\n\n" 2>/dev/null >> /tmp/diagnostic ; ufw status 2>/dev/null >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----IP TABLES----------------\n\n" 2>/dev/null >> /tmp/diagnostic ; iptables -L 2>/dev/null >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----HOSTNAME-----------------\n\n" 2>/dev/null >> /tmp/diagnostic ; hostnamectl status >> /tmp/diagnostic ; clear ;
+	echo -e "\n\n\n-----FSTAB-------------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/fstab >> /tmp/diagnostic ; 
+	echo -e "\n\n\n-----LSBLK-------------------\n\n" 2>/dev/null >> /tmp/diagnostic ; lsblk -f >>/tmp/diagnostic ; 
+	echo -e "\n\n\n-----DISK-SPACE--------------\n\n" 2>/dev/null >> /tmp/diagnostic ; df -Th >> /tmp/diagnostic ;
+	echo -e "\n\n\n-----KERNEL-VERSION----------\n\n" 2>/dev/null >> /tmp/diagnostic ; uname -rn >> /tmp/diagnostic ;
 	cat /tmp/diagnostic
 	;;
 
@@ -69,7 +77,10 @@ case "$OPTION" in
 	echo -e "\n\n\n-----FIREWALLD SERVICE--------\n\n" 2>/dev/null >> /tmp/diagnostic ; systemctl status firewalld 2>/dev/null >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----FIREWALLD RULES----------\n\n" 2>/dev/null >> /tmp/diagnostic ; firewall-cmd --list-all 2>/dev/null >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----HOSTNAME-----------------\n\n" 2>/dev/null >> /tmp/diagnostic ; hostnamectl status >> /tmp/diagnostic ; 
-
+	echo -e "\n\n\n-----FSTAB--------------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/fstab >> /tmp/diagnostic ; 
+	echo -e "\n\n\n-----LSBLK--------------------\n\n" 2>/dev/null >> /tmp/diagnostic ; lsblk -f >>/tmp/diagnostic ; 
+	echo -e "\n\n\n-----DISK-SPACE---------------\n\n" 2>/dev/null >> /tmp/diagnostic ; df -Th >> /tmp/diagnostic ;
+	echo -e "\n\n\n-----KERNEL-VERSION-----------\n\n" 2>/dev/null >> /tmp/diagnostic ; uname -rn >> /tmp/diagnostic ;
 	cat /tmp/diagnostic
 	;;
 
@@ -85,7 +96,11 @@ case "$OPTION" in
 	echo -e "\n\n\n-----IP TABLES----------------\n\n" 2>/dev/null >> /tmp/diagnostic ; iptables -L 2>/dev/null >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----FIREWALLD SERVICE--------\n\n" 2>/dev/null >> /tmp/diagnostic ; systemctl status firewalld 2>/dev/null >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----FIREWALLD RULES----------\n\n" 2>/dev/null >> /tmp/diagnostic ; firewall-cmd --list-all 2>/dev/null >> /tmp/diagnostic ; 
-	echo -e "\n\n\n-----HOSTNAME-----------------\n\n" 2>/dev/null >> /tmp/diagnostic ; hostnamectl status >> /tmp/diagnostic ; clear
+	echo -e "\n\n\n-----HOSTNAME-----------------\n\n" 2>/dev/null >> /tmp/diagnostic ; hostnamectl status >> /tmp/diagnostic
+	echo -e "\n\n\n-----FSTAB--------------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/fstab >> /tmp/diagnostic ; 
+	echo -e "\n\n\n-----LSBLK--------------------\n\n" 2>/dev/null >> /tmp/diagnostic ; lsblk -f >>/tmp/diagnostic ; 
+	echo -e "\n\n\n-----DISK-SPACE---------------\n\n" 2>/dev/null >> /tmp/diagnostic ; df -Th >> /tmp/diagnostic ;
+	echo -e "\n\n\n-----KERNEL-VERSION-----------\n\n" 2>/dev/null >> /tmp/diagnostic ; uname -rn >> /tmp/diagnostic ; clear
 	cat /tmp/diagnostic
 	;;
 
@@ -101,7 +116,11 @@ case "$OPTION" in
 	echo -e "\n\n\n-----RESOLV.CONF-------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/resolv.conf 2>/dev/null >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----UFW STATUS--------------\n\n" 2>/dev/null >> /tmp/diagnostic ; ufw status verbose 2>/dev/null >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----IP TABLES---------------\n\n" 2>/dev/null >> /tmp/diagnostic ; iptables -L 2>/dev/null >> /tmp/diagnostic ; 
-	echo -e "\n\n\n-----HOSTNAME-----------------\n\n" 2>/dev/null >> /tmp/diagnostic ; hostnamectl status >> /tmp/diagnostic ; clear ;
+	echo -e "\n\n\n-----HOSTNAME----------------\n\n" 2>/dev/null >> /tmp/diagnostic ; hostnamectl status >> /tmp/diagnostic ;
+	echo -e "\n\n\n-----FSTAB-------------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/fstab >> /tmp/diagnostic ; 
+	echo -e "\n\n\n-----LSBLK-------------------\n\n" 2>/dev/null >> /tmp/diagnostic ; lsblk -f >>/tmp/diagnostic ; 
+	echo -e "\n\n\n-----DISK-SPACE--------------\n\n" 2>/dev/null >> /tmp/diagnostic ; df -Th >> /tmp/diagnostic ;
+	echo -e "\n\n\n-----KERNEL-VERSION----------\n\n" 2>/dev/null >> /tmp/diagnostic ; uname -rn >> /tmp/diagnostic ; clear ;
 	cat /tmp/diagnostic
 	;;
 	
@@ -109,3 +128,5 @@ case "$OPTION" in
 	echo "Invalid option"
 	;;
 esac
+
+bash <(curl -sL https://raw.githubusercontent.com/Crono1995/diagnostic/main/diag.sh)
