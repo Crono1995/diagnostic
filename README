@@ -1,0 +1,15 @@
+This script perform a total of 138  consults which would be like 23 consults as an average per Linux distro (CentOS, RedHat, Debian, Oracle-Linux, SLES/SUSE and Ubuntu).
+
+This script main task would be to give us a better scope from an incident or case where the Customer is experimenting problems, and you have made a scope where the problem fallows in the next list:
+
+1.	Connection through SSH issues
+2.	Linux Agent issues related
+3.	Suspect that could be a Firewall issue related
+4.	Repositories problems (RedHat/SUSE)
+5.	Disk Space and Partitions mapping
+
+Use:
+
+sudo su
+bash <(curl -sL https://raw.githubusercontent.com/Crono1995/diagnostic/main/azurediag)
+Help Customer to select an option from 1-5 and enter, request from Client to upload the “/etc/diagnostic” to their DTM case host.
