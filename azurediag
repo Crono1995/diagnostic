@@ -17,9 +17,10 @@ read -p "**-SELECT AN OPTION_#: " OPTION
 
 case "$OPTION" in
 	1)echo -e "\n\n\n-----SSHD SERVICE STATUS-----\n\n" 2>/dev/null > /tmp/diagnostic ; systemctl status sshd 2>/dev/null >> /tmp/diagnostic;
-	echo -e "\n\n\n-----SSHD_CONFIG-------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/ssh/sshd_config 2>/dev/null >> /tmp/diagnostic ;
+	echo -e "\n\n\n-----SSHD_CONFIG-------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/ssh/sshd_config 2>/dev/null >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----NETWORK-MANAGER---------\n\n" 2>/dev/null >> /tmp/diagnostic ; systemctl status NetworkManager 2>/dev/null >> /tmp/diagnostic ;
-	echo -e "\n\n\n-----CLOUD-INIT--------------\n\n" 2>/dev/null >> /tmp/diagnostic ; systemctl status cloud-init.service 2>/dev/null >> /tmp/diagnostic ;
+	echo -e "\n\n\n-----CLOUD-INIT--------------\n\n" 2>/dev/null >> /tmp/diagnostic ; systemctl status cloud-init.service 2>/dev/null >> /tmp/diagnostic ; 
+	echo -e "\n\n\n-----HOSTS-------------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/hosts 2>/dev/null >> /tmp/diagnostic ;
 	echo -e "\n\n\n-----HOST.ALLOW--------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/host.allow 2>/dev/null >> /tmp/diagnostic ;
 	echo -e "\n\n\n-----HOST.DENY---------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/host.deny 2>/dev/null >> /tmp/diagnostic ;
 	echo -e "\n\n\n-----WALINUXAGENT STATUS-----\n\n" 2>/dev/null >> /tmp/diagnostic ; systemctl status waagent 2>/dev/null >> /tmp/diagnostic ;
@@ -40,13 +41,14 @@ case "$OPTION" in
 	echo -e "\n\n\n-----GRUB2:CFG---------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /boot/grub2/grub.cfg >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----FSTAB-------------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/fstab >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----LSBLK-------------------\n\n" 2>/dev/null >> /tmp/diagnostic ; lsblk -f >>/tmp/diagnostic ; 
-	echo -e "\n\n\n-----DISK-SPACE--------------\n\n" 2>/dev/null >> /tmp/diagnostic ; df -Th >> /tmp/diagnostic ;
-	echo -e "\n\n\n-----KERNEL-VERSION----------\n\n" 2>/dev/null >> /tmp/diagnostic ; uname -rn >> /tmp/diagnostic ;
+	echo -e "\n\n\n-----DISK-SPACE--------------\n\n" 2>/dev/null >> /tmp/diagnostic ; df -Th >> /tmp/diagnostic ; 
+	echo -e "\n\n\n-----KERNEL-VERSION----------\n\n" 2>/dev/null >> /tmp/diagnostic ; uname -rn >> /tmp/diagnostic ; 
 	cat /tmp/diagnostic
 	;;
 	
 	2)echo -e "\n\n\n-----SSHD SERVICE STATUS:-----\n\n" 2>/dev/null > /tmp/diagnostic ; systemctl status sshd 2>/dev/null >> /tmp/diagnostic;
 	echo -e "\n\n\n-----SSHD_CONFIG:-------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/ssh/sshd_config 2>/dev/null >> /tmp/diagnostic ; 
+	echo -e "\n\n\n-----HOSTS-------------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/hosts 2>/dev/null >> /tmp/diagnostic ;
 	echo -e "\n\n\n-----HOSTS.DENY:--------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/hosts.deny 2>/dev/null >> /tmp/diagnostic ;
 	echo -e "\n\n\n-----WALINUXAGENT STATUS:-----\n\n" 2>/dev/null >> /tmp/diagnostic ; systemctl status walinuxagent 2>/dev/null >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----WALINUXAGENT VERSION:----\n\n" 2>/dev/null >> /tmp/diagnostic ; waagent --version 2>/dev/null >> /tmp/diagnostic ; 
@@ -66,6 +68,7 @@ case "$OPTION" in
 
 	3)echo -e "\n\n\n-----SSHD SERVICE STATUS:-----\n\n" 2>/dev/null > /tmp/diagnostic ; systemctl status sshd 2>/dev/null >> /tmp/diagnostic; 
 	echo -e "\n\n\n-----SSHD_CONFIG:-------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/ssh/sshd_config 2>/dev/null >> /tmp/diagnostic ; 
+	echo -e "\n\n\n-----HOSTS-------------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/hosts 2>/dev/null >> /tmp/diagnostic ;
 	echo -e "\n\n\n-----HOSTS.ALLOW:-------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/hosts.allow 2>/dev/null >> /tmp/diagnostic ;
 	echo -e "\n\n\n-----WALINUXAGENT STATUS:-----\n\n" 2>/dev/null >> /tmp/diagnostic ; systemctl status waagent 2>/dev/null >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----WALINUXAGENT VERSION:----\n\n" 2>/dev/null >> /tmp/diagnostic ; waagent --version 2>/dev/null >> /tmp/diagnostic ; 
@@ -86,6 +89,7 @@ case "$OPTION" in
 
 	4)echo -e "\n\n\n-----SSHD SERVICE STATUS:-----\n\n" 2>/dev/null > /tmp/diagnostic ; systemctl status sshd 2>/dev/null >> /tmp/diagnostic; 
 	echo -e "\n\n\n-----SSHD_CONFIG:-------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/ssh/sshd_config 2>/dev/null >> /tmp/diagnostic ; 
+	echo -e "\n\n\n-----HOSTS-------------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/hosts 2>/dev/null >> /tmp/diagnostic ;
 	echo -e "\n\n\n-----HOSTS.DENY:--------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/hosts.deny 2>/dev/null >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----WALINUXAGENT STATUS:-----\n\n" 2>/dev/null >> /tmp/diagnostic ; systemctl status waagent 2>/dev/null >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----WALINUXAGENT VERSION:----\n\n" 2>/dev/null >> /tmp/diagnostic ; waagent --version 2>/dev/null >> /tmp/diagnostic ; 
@@ -100,7 +104,13 @@ case "$OPTION" in
 	echo -e "\n\n\n-----FSTAB--------------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/fstab >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----LSBLK--------------------\n\n" 2>/dev/null >> /tmp/diagnostic ; lsblk -f >>/tmp/diagnostic ; 
 	echo -e "\n\n\n-----DISK-SPACE---------------\n\n" 2>/dev/null >> /tmp/diagnostic ; df -Th >> /tmp/diagnostic ;
-	echo -e "\n\n\n-----KERNEL-VERSION-----------\n\n" 2>/dev/null >> /tmp/diagnostic ; uname -rn >> /tmp/diagnostic ; clear
+	echo -e "\n\n\n-----KERNEL-VERSION-----------\n\n" 2>/dev/null >> /tmp/diagnostic ; uname -rn >> /tmp/diagnostic ; 
+	echo -e "\n\n\n-----KERNEL-VERSION-----------\n\n" 2>/dev/null >> /tmp/diagnostic ; SUSEConnect -s >> /tmp/diagnostic ; 
+	echo -e "\n\n\n-----KERNEL-VERSION-----------\n\n" 2>/dev/null >> /tmp/diagnostic ; ls -lh /etc/zypp/repos.d/ >> /tmp/diagnostic ; 
+	echo -e "\n\n\n-----KERNEL-VERSION-----------\n\n" 2>/dev/null >> /tmp/diagnostic ; for y in 443 80 ; do for x in smt-azure.susecloud.net ; do echo -e "\n$x" 2>/dev/null >> /tmp/diagnostic ; (echo >/dev/tcp/$x/$y) && (echo "Open $y" || echo "Close 443") >> /tmp/diagnostic 2>&1 ; done ; done ;
+	echo -e "\n\n\n-----KERNEL-VERSION-----------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/regionserverclnt.cfg >> /tmp/diagnostic ; 
+	echo -e "\n\n\n-----KERNEL-VERSION-----------\n\n" 2>/dev/null >> /tmp/diagnostic ; ls -lh /etc/products.d/ >> /tmp/diagnostic ; 
+	echo -e "\n\n\n-----KERNEL-VERSION-----------\n\n" 2>/dev/null >> /tmp/diagnostic ; tail -n 100 /var/log/cloudregister >> /tmp/diagnostic ; clear ;
 	cat /tmp/diagnostic
 	;;
 
