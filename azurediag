@@ -110,6 +110,7 @@ case "$OPTION" in
 	echo -e "\n\n\n-----SMT-CONNECTION-----------\n\n" 2>/dev/null >> /tmp/diagnostic ; for y in 443 80 ; do for x in smt-azure.susecloud.net ; do echo -e "\n$x" 2>/dev/null >> /tmp/diagnostic ; (echo >/dev/tcp/$x/$y) && (echo "Open $y" || echo "Close 443") >> /tmp/diagnostic 2>&1 ; done ; done ;
 	echo -e "\n\n\n-----REGION-SERVER-CFG--------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/regionserverclnt.cfg >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----PRODUCTS-D---------------\n\n" 2>/dev/null >> /tmp/diagnostic ; ls -lh /etc/products.d/ >> /tmp/diagnostic ; 
+	echo -e "\n\n\n-----ZYPPER-LR----------------\n\n" 2>/dev/null >> /tmp/diagnostic ; zypper lr >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----CLOUD-REGISTER-----------\n\n" 2>/dev/null >> /tmp/diagnostic ; tail -n 100 /var/log/cloudregister >> /tmp/diagnostic ; clear ;
 	cat /tmp/diagnostic
 	;;
