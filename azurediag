@@ -111,6 +111,7 @@ case "$OPTION" in
 	echo -e "\n\n\n-----REGION-SERVER-CFG--------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/regionserverclnt.cfg >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----PRODUCTS-D---------------\n\n" 2>/dev/null >> /tmp/diagnostic ; ls -lh /etc/products.d/ >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----ZYPPER-LR----------------\n\n" 2>/dev/null >> /tmp/diagnostic ; zypper lr >> /tmp/diagnostic ; 
+	echo -e "\n\n\n-----GLIBC--------------------\n\n" 2>/dev/null >> /tmp/diagnostic ; grep -ari "requires:glibc" /etc/zypp/vendors.d/* >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----CLOUD-REGISTER-----------\n\n" 2>/dev/null >> /tmp/diagnostic ; tail -n 100 /var/log/cloudregister >> /tmp/diagnostic ; clear ;
 	cat /tmp/diagnostic
 	;;
