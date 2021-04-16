@@ -42,7 +42,7 @@ case "$OPTION" in
 	echo -e "\n\n\n-----FSTAB-------------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/fstab >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----LSBLK-------------------\n\n" 2>/dev/null >> /tmp/diagnostic ; lsblk -f >>/tmp/diagnostic ; 
 	echo -e "\n\n\n-----DISK-SPACE--------------\n\n" 2>/dev/null >> /tmp/diagnostic ; df -Th >> /tmp/diagnostic ; 
-	echo -e "\n\n\n-----KERNEL-VERSION----------\n\n" 2>/dev/null >> /tmp/diagnostic ; uname -rn >> /tmp/diagnostic ; 
+	echo -e "\n\n\n-----KERNEL-VERSION----------\n\n" 2>/dev/null >> /tmp/diagnostic ; uname -rn >> /tmp/diagnostic ; clear ;
 	cat /tmp/diagnostic
 	;;
 	
@@ -58,11 +58,11 @@ case "$OPTION" in
 	echo -e "\n\n\n-----RESOLV.CONF:-------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/resolv.conf 2>/dev/null >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----UFW STATUS---------------\n\n" 2>/dev/null >> /tmp/diagnostic ; ufw status 2>/dev/null >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----IP TABLES----------------\n\n" 2>/dev/null >> /tmp/diagnostic ; iptables -L 2>/dev/null >> /tmp/diagnostic ; 
-	echo -e "\n\n\n-----HOSTNAME-----------------\n\n" 2>/dev/null >> /tmp/diagnostic ; hostnamectl status >> /tmp/diagnostic ; clear ;
+	echo -e "\n\n\n-----HOSTNAME-----------------\n\n" 2>/dev/null >> /tmp/diagnostic ; hostnamectl status >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----FSTAB-------------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/fstab >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----LSBLK-------------------\n\n" 2>/dev/null >> /tmp/diagnostic ; lsblk -f >>/tmp/diagnostic ; 
 	echo -e "\n\n\n-----DISK-SPACE--------------\n\n" 2>/dev/null >> /tmp/diagnostic ; df -Th >> /tmp/diagnostic ;
-	echo -e "\n\n\n-----KERNEL-VERSION----------\n\n" 2>/dev/null >> /tmp/diagnostic ; uname -rn >> /tmp/diagnostic ;
+	echo -e "\n\n\n-----KERNEL-VERSION----------\n\n" 2>/dev/null >> /tmp/diagnostic ; uname -rn >> /tmp/diagnostic ; clear ; 
 	cat /tmp/diagnostic
 	;;
 
@@ -83,7 +83,7 @@ case "$OPTION" in
 	echo -e "\n\n\n-----FSTAB--------------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/fstab >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----LSBLK--------------------\n\n" 2>/dev/null >> /tmp/diagnostic ; lsblk -f >>/tmp/diagnostic ; 
 	echo -e "\n\n\n-----DISK-SPACE---------------\n\n" 2>/dev/null >> /tmp/diagnostic ; df -Th >> /tmp/diagnostic ;
-	echo -e "\n\n\n-----KERNEL-VERSION-----------\n\n" 2>/dev/null >> /tmp/diagnostic ; uname -rn >> /tmp/diagnostic ;
+	echo -e "\n\n\n-----KERNEL-VERSION-----------\n\n" 2>/dev/null >> /tmp/diagnostic ; uname -rn >> /tmp/diagnostic ; clear ,
 	cat /tmp/diagnostic
 	;;
 
