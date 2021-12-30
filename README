@@ -12,4 +12,4 @@ Use:
 
 sudo su
 bash <(curl -sL https://raw.githubusercontent.com/Crono1995/diagnostic/main/azurediag)
-Help Customer to select an option from 1-5 and enter, request from Client to upload the “/etc/diagnostic” to their DTM case host.
+Help Customer to select an option from 1-5 and enter, request from Client to upload the “/tmp/diagnostic” to their DTM case host.
