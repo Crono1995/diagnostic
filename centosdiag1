@@ -18,8 +18,6 @@
 	echo -e "\n\n\n-----IP TABLES---------------\n\n" 2>/dev/null >> /tmp/diagnostic ; iptables -L 2>/dev/null >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----HOSTNAME----------------\n\n" 2>/dev/null >> /tmp/diagnostic ; hostnamectl status >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----REPOLIST----------------\n\n" 2>/dev/null >> /tmp/diagnostic ; yum repolist >> /tmp/diagnostic ; 
-	echo -e "\n\n\n-----RHEL-RHUIS--------------\n\n" 2>/dev/null >> /tmp/diagnostic ; for x in rhui-1.microsoft.com rhui-2.microsoft.com rhui-3.microsoft.com ; do echo -e "\n$x" 2>/dev/null >> /tmp/diagnostic ; (echo >/dev/tcp/$x/443) && (echo "Open 443" || echo "Close 443") >> /tmp/diagnostic 2>&1 ; done ; 
-	echo -e "\n\n\n-----RH-CLOUD----------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/yum.repos.d/rh-cloud.repo >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----YUM-CONF----------------\n\n" 2>/dev/null >> /tmp/diagnostic ; grep -i proxy /etc/yum.conf >> /tmp/diagnostic ; cat /etc/yum.conf >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----GRUB2:CFG---------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /boot/grub2/grub.cfg >> /tmp/diagnostic ; 
 	echo -e "\n\n\n-----FSTAB-------------------\n\n" 2>/dev/null >> /tmp/diagnostic ; cat /etc/fstab >> /tmp/diagnostic ; 
