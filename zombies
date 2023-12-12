@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Target file to save the results
+target_file="zombie_processes.txt"
+
+# Get the list of all processes
+all_processes=$(ps aux)
+
+# Filter only zombie processes
+zombie_processes=$(echo "$all_processes" | awk '$8=="Z" {print}')
+
+# Check if there are any zombie processes
+if [ -n "$zombie_processes" ]; then
+    echo "Zombie Processes:" > /tmp/zresults.txt
+    echo "$zombie_processes" >> /tmp/zresults.txt
+else
+    echo "No zombie processes found."
+fi
